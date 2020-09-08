@@ -1,0 +1,23 @@
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+pool:
+  vmImage: 'ubuntu-latest'
+steps:
+- download: 1
+  displayName: Download server artifact
+- download: 2
+  displayName: Download client artifact
+- task: Docker@2
+  displayName: Build docker image
+  inputs:
+    command: build
+    dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+    tags: |
+      $(tag)

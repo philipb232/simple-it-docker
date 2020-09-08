@@ -10,9 +10,19 @@ variables:
 pool:
   vmImage: 'ubuntu-latest'
 steps:
-- download: 1
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'specific'
+    project: 'simple-it'
+    pipeline: 1
+    buildVersionToDownload: 'latest'
   displayName: Download server artifact
-- download: 2
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'specific'
+    project: 'simple-it'
+    pipeline: 2
+    buildVersionToDownload: 'latest'
   displayName: Download client artifact
 - task: Docker@2
   displayName: Build docker image

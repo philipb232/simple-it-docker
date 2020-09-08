@@ -18,7 +18,7 @@ steps:
     buildVersionToDownload: 'latest'
     downloadType: 'single'
     artifactName: 'simple-it-server'
-    downloadPath: '$(Pipeline.Workspace)'
+    downloadPath: '$(Build.SourcesDirectory)'
   displayName: Download server artifact
 - task: DownloadBuildArtifacts@0
   inputs:
@@ -28,7 +28,7 @@ steps:
     buildVersionToDownload: 'latest'
     downloadType: 'single'
     artifactName: 'simple-it-client'
-    downloadPath: '$(Pipeline.Workspace)'
+    downloadPath: '$(Build.SourcesDirectory)'
   displayName: Download client artifact
 - task: Docker@2
   displayName: Build docker image

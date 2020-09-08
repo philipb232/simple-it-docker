@@ -13,16 +13,22 @@ steps:
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'specific'
-    project: 'simple-it'
-    pipeline: 1
+    project: '62a3e2d7-dec6-42a7-927c-5cf1d946de7c'
+    pipeline: '1'
     buildVersionToDownload: 'latest'
+    downloadType: 'single'
+    artifactName: 'simple-it-server'
+    downloadPath: '$(System.ArtifactsDirectory)'
   displayName: Download server artifact
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'specific'
     project: 'simple-it'
-    pipeline: 2
+    pipeline: '2'
     buildVersionToDownload: 'latest'
+    downloadType: 'single'
+    artifactName: 'simple-it-client'
+    downloadPath: '$(System.ArtifactsDirectory)'
   displayName: Download client artifact
 - task: Docker@2
   displayName: Build docker image

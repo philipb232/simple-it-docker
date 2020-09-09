@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        sh 'docker.build("philipb232/simple-it")'
+        docker.build("philipb232/simple-it")
       }
     }
 

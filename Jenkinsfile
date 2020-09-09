@@ -1,12 +1,7 @@
 pipeline {
-  agent {
-    node {
-      label 'simple-it'
-    }
-
-  }
+  agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
         sh 'docker.build("philipb232/simple-it")'
       }

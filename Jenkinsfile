@@ -5,7 +5,8 @@ pipeline {
       steps {
         copyArtifacts 'simple-it-client/master'
         copyArtifacts 'simple-it-server/master'
-        sh 'ls'
+        sh '''tell Dockerfile
+ls target'''
       }
     }
 

@@ -10,9 +10,13 @@ pipeline {
 
     stage('docker build') {
       steps {
-        sh 'docker build -t philipb232/simple-it .'
+        sh 'docker.build registry'
       }
     }
 
+  }
+  environment {
+    registryCredential = '608aae94-9b81-46d4-9bc3-4aeafa416485'
+    registry = 'philipb232/simple-it'
   }
 }

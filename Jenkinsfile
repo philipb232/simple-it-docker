@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('copy artefacts') {
       steps {
-        copyArtifacts 'simple-it-client'
-        copyArtifacts 'simple-it-server'
+        copyArtifacts 'simple-it-client/master'
+        copyArtifacts 'simple-it-server/master'
       }
     }
 

@@ -11,7 +11,7 @@ pipeline {
     stage('docker build') {
       steps {
         script {
-          docker.build registry
+          docker.build registry + ":" + build
         }
 
       }
@@ -21,5 +21,6 @@ pipeline {
   environment {
     registryCredential = '608aae94-9b81-46d4-9bc3-4aeafa416485'
     registry = 'philipb232/simple-it'
+    build = 'nightly'
   }
 }

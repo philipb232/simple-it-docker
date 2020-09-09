@@ -10,7 +10,10 @@ pipeline {
 
     stage('docker build') {
       steps {
-        sh 'docker.build registry'
+        script {
+          docker.build registry
+        }
+
       }
     }
 

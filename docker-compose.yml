@@ -1,0 +1,29 @@
+version: '2.1'
+services:
+  simpleit-sql:
+    image: mariadb
+    container_name: simpleit-sql
+    restart: always
+    environment:
+      MYSQL_DATABASE: simpleit
+      MYSQL_USER: simpleit
+      MYSQL_PASSWORD: ${SQL_PW:-8tm4#DiSZC}
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+    volumes:
+      - simpleit-sql:/var/lib/mysql
+    networks:
+      - simpleit
+  simpleit-server:
+    image: philipb232/simple-it:nightly
+    container_name: simpleit-server
+    restart: always
+    environment:
+      SQL_PW: ${SQL_PW:-8tm4#DiSZC}
+    networks:
+      - simpleit
+    ports:
+      - "8124:8080"
+volumes:
+  simpleit-sql:
+networks:
+  simpleit:

@@ -22,7 +22,7 @@ services:
     networks:
       - simpleit
     ports:
-      - "8124:8080"
+      - "${PORT:-8080}:8080"
 volumes:
   simpleit-sql:
 networks:

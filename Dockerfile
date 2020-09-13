@@ -1,5 +1,5 @@
 FROM nginx:alpine
-RUN apk add openjdk11
+RUN apk add openjdk8-jre
 
 ENV SQL_SERVER=simpleit-sql
 ENV SQL_TZ=Europe/Berlin

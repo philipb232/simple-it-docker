@@ -1,9 +1,8 @@
 pipeline {
   agent any
   stages {
-    stage('copy artefacts') {
+    stage('copy server artifact') {
       steps {
-        copyArtifacts 'simple-it-client/master'
         copyArtifacts 'simple-it-server/master'
       }
     }
@@ -13,7 +12,6 @@ pipeline {
         script {
           dockerImage = docker.build registry + ":" + build
         }
-
       }
     }
 
@@ -24,7 +22,6 @@ pipeline {
             dockerImage.push()
           }
         }
-
       }
     }
 

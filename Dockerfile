@@ -1,13 +1,10 @@
-FROM nginx:alpine
-RUN apk add openjdk8-jre
+FROM openjdk:8-jre-alpine
 
 ENV SQL_SERVER=simpleit-sql
 ENV SQL_TZ=Europe/Berlin
 ENV SQL_DB=simpleit
 ENV SQL_USER=simpleit
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY target/simple-it-server.jar /simple-it/
-COPY dist/simple-it/ /simple-it/client/
+COPY target/simple-it-server.jar /
 
-CMD nginx && cd /simple-it && java -jar simple-it-server.jar
+CMD java -jar simple-it-server.jar
